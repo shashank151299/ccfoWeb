@@ -84,7 +84,7 @@ body {
 .bgimage {
   position: fixed;
   z-index: 1;
-  background-image: url(/res/topbar.png);
+  background-image: url(../res/topbar.png);
   background-size: cover;
   padding: 7px;
   margin: 0px;
