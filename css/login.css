@@ -1,0 +1,75 @@
+body {
+  background-image: url("../res/Background.png");
+  max-width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+}
+
+#login .parent {
+  height: 100vh;
+}
+
+#login .backimg {
+  background-image: url("../res/Rectangle\ 1461.png");
+  border-radius: 30px;
+  padding: 20px;
+}
+
+#login .form {
+  color: white;
+}
+
+#login .form hr {
+  height: 2px;
+  background-color: white;
+}
+
+#login form input {
+  color: white;
+  background: transparent;
+  border-radius: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 5px;
+}
+
+#login form input::-webkit-input-placeholder {
+  /* Edge */
+  color: white;
+  font-size: 1.3em;
+}
+
+#login form input:-ms-input-placeholder {
+  /* Internet Explorer */
+  color: white;
+}
+
+#login form input::placeholder {
+  color: white;
+}
+
+#login form button {
+  border-radius: 10px;
+}
+
+#login input:focus,
+input:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+#login .btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+#login .btn-link {
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  transition: 0.4s;
+}

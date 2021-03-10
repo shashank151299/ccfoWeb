@@ -1,0 +1,83 @@
+body {
+  background-image: url("../res/Component\ 2\ –\ 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#signup .parent {
+  height: 100vh;
+}
+
+#signup .backimg {
+  background-image: url("../res/Rectangle\ 1461.png");
+  border-radius: 30px;
+  padding: 20px 0px;
+  margin: 0px 0px;
+}
+
+#signup .form {
+  color: white;
+}
+
+#signup .form hr {
+  height: 2px;
+  background-color: white;
+}
+
+#signup form input {
+  color: white;
+  background: transparent;
+  border-radius: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 5px;
+  margin-bottom: 2px;
+}
+
+#signup form input::-webkit-input-placeholder {
+  /* Edge */
+  color: white;
+  font-size: 1em;
+}
+
+#signup form input:-ms-input-placeholder {
+  /* Internet Explorer */
+  color: white;
+}
+
+#signup form input::placeholder {
+  color: white;
+}
+
+#signup button {
+  border-radius: 10px;
+  width: 70%;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+#signup .gb {
+  font-size: 1em;
+}
+
+#signup input:focus,
+input:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+#signup .btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+#signup .btn-link {
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  transition: 0.4s;
+}

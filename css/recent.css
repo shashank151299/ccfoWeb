@@ -1,0 +1,234 @@
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color 0.4s;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1; /*---------------------------------------------------------------------------------------------*/
+  top: 0;
+  left: 0;
+  background-color: #008080;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 50px;
+}
+.sidenav img {
+  width: 120px;
+  padding: 0px;
+  margin: 0px;
+}
+.sidenav a {
+  padding: 2px 8px 2px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #000000;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+  margin-left: 20px;
+}
+
+#navigation {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #ffffff;
+}
+
+#navigation hr {
+  width: 70%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-top: 1px solid white;
+  background-color: #ffffff;
+}
+
+.seprater {
+  background-color: #008080;
+}
+
+#navigation .menu img {
+  height: 22px;
+  width: 22px;
+  margin: 10px;
+}
+
+#main {
+  position: fixed;
+  transition: margin-left 0.5s;
+  padding: 5px 10px 0px 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.topbar {
+  text-align: center;
+  color: #ffffff;
+}
+
+.bgimage {
+  position: fixed;
+  z-index: 1;
+  background-image: url(/res/topbar.png);
+  background-size: cover;
+  padding: 7px;
+  margin: 0px;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.search img {
+  width: 90%;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #008080;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
+.searchTerm:focus {
+  color: #00b4cc;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #008080;
+  background: #008080;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.wrap {
+  width: 90%;
+}
+
+/*Resize the wrap to see the search bar change!*/
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/*Section 3 css starts from here*/
+
+#recents .container {
+  overflow: hidden;
+}
+
+.title {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Margin adjustment*/
+.margin-adj {
+  margin-top: 110px;
+}
+
+.title h4 {
+  margin: 0px;
+}
+.title .hr1 {
+  margin: 0px;
+  border: none;
+  border-top: 3px solid #008080;
+}
+.title .hr2 {
+  margin-top: 2px;
+  margin-bottom: 0px;
+  border: none;
+  border-top: 1px solid #008080;
+}
+
+#recents .recent-card {
+  margin: 20px 1px 0px 1px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: #707070;
+  box-shadow: 2px 2px 1px 0px #cacaca;
+}
+#recents .food-img {
+  height: auto;
+  width: 300px;
+  margin: 5px 5px 0px 5px;
+  border-radius: 10px 0px 0px 0px;
+  padding-right: 10px;
+}
+#recents .card-text-head {
+  margin: 0px;
+  padding: 0px 5px 0px 5px;
+  color: #008080;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+#recents .card-text-sub {
+  margin: 0px;
+  padding: 0px 5px 0px 5px;
+  color: #707070;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 0.8em;
+}
+#recents .content p {
+  padding-left: 1px;
+  font-size: 0.8em;
+  margin: 0px;
+}
+#recents .rep-ord {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  font-weight: bold;
+  color: #008080;
+}
+#recents .rep-ord img {
+  width: 20px;
+}
+/*all-body class css is used to help the page turn 
+black when navbar is open and turn normal when touched or 
+close navbar function is called*/
+.allbody {
+  position: fixed;
+  width: 0%; /*changable value*/
+  opacity: 90%;
+  top: 0px;
+  left: 0px;
+}
+.allbody img {
+  height: max-content;
+}
