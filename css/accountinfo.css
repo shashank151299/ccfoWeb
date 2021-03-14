@@ -158,3 +158,6 @@ close navbar function is called*/
 .topmargin {
   margin-top: 100px;
 }
+form input {
+  margin-top: 10px;
+}
