@@ -155,3 +155,6 @@ close navbar function is called*/
   height: max-content;
 }
 /*Secton 3 code-----------------*/
+.topmargin {
+  margin-top: 100px;
+}
