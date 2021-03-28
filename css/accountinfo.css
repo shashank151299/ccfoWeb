@@ -166,8 +166,9 @@ close navbar function is called*/
 }
 form input {
   margin: 0px 0px 10px 0px;
-  box-shadow: 2px 2px 1px 0px #cacaca;
-  border: #000000;
+}
+form .form-control {
+  border-radius: 8px;
 }
 form h6 {
   margin: 0px 0px 2px 0px;
