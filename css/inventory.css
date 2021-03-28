@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   transition: background-color 0.4s;
+  background-color: #e0f2f1;
 }
 
 .sidenav {
@@ -190,6 +191,7 @@ close navbar function is called*/
   border-width: 1px;
   border-color: #707070;
   box-shadow: 2px 2px 1px 0px #cacaca;
+  background-color: #fff;
 }
 #inventory .food-img {
   height: auto;
