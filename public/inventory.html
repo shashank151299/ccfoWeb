@@ -10,6 +10,10 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="css/inventory.css">
     <title>Inventory</title>
+    <script src="/__/firebase/8.3.2/firebase-app.js"></script>
+    <script src="/__/firebase/8.3.2/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.3.2/firebase-auth.js"></script>
+    <script src="/__/firebase/8.3.2/firebase-database.js"></script>
   </head>
   <body>
       
@@ -22,10 +26,10 @@
                     <img src="res/icons8-account-100.png">
                 </div>
                 <div class="row justify-content-center">
-                    <h5>User Name</h5>
+                    <h5 id="uname">User Name</h5>
                 </div>
                 <div class="row justify-content-center">
-                    <h6>emailid@gmail.com</h6>
+                    <h6 id="email">emailid@gmail.com</h6>
                     <hr>
                 </div>
                    
@@ -36,7 +40,7 @@
                     <a href="inventory.html"><img src="res/menu.svg">Inventory</a>
                     <a href="accountinfo.html"><img src="res/information.svg">Account Info.</a>
                     <a href="recentorders.html"><img src="res/recent.svg">Recent Order</a>
-                    <a href="login.html"><img src="res/logout.svg">Sign Out</a>
+                    <a href="" onclick="logOut()"><img src="res/logout.svg">Sign Out</a>
                 </div>
             </div>  
             <div id="main">
@@ -296,6 +300,8 @@
           document.getElementById("allbody-id").style.width = "0%";       
         }
     </script>
+    <script type="text/javascript" src="js/inventory.js"></script>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

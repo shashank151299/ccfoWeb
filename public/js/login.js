@@ -9,12 +9,15 @@ var firebaseConfig = {
     measurementId: "G-HK4HRJKCTT"
   };
 
-  var link = "https://shashank151299.github.io/ccfoWeb/public";
+  //var link = "https://shashank151299.github.io/ccfoWeb/public";
+  var link = "https://pmms-ccfo.web.app/";
+  //var link = "http://localhost:5000";
 
   firebase.initializeApp(firebaseConfig);
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
+      
       location.replace(link+"/home.html")
     } else {
       // User is not signed in.
