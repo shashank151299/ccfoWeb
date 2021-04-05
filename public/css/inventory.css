@@ -215,7 +215,7 @@ close navbar function is called*/
   height: 15px;
   width: 15px;
 }
-#inventory h7 {
+#inventory .inventory-card a {
   color: #008080;
   font-size: 0.7em;
   position: absolute;
