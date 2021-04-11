@@ -8,16 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/accountinfo.css">
-    <title>Acc. Info.</title>
+    <link rel="stylesheet" href="css/history.css">
+    <title>Recent Ord.</title>
     <script src="/__/firebase/8.3.2/firebase-app.js"></script>
     <script src="/__/firebase/8.3.2/firebase-analytics.js"></script>
     <script src="/__/firebase/8.3.2/firebase-auth.js"></script>
     <script src="/__/firebase/8.3.2/firebase-database.js"></script>
   </head>
   <body>
-      
     <div class="container-fluid bgimage">
+
         <!--section 1-->
         <section id="navigation">
             <div id="mySidenav" class="sidenav">
@@ -39,8 +39,8 @@
                     <a href="carts.html"><img src="res/shopping_cart-white-18dp.svg">Cart</a>
                     <a href="liveorders.html"><img src="res/cooking_3770370.svg">Live Orders</a>
                     <a href="inventory.html"><img src="res/menu.svg">Inventory</a>
-                    <a href=""><img src="res/information.svg">Account Info.</a>
-                    <a href="history.html"><img src="res/recent.svg">History</a>
+                    <a href="accountinfo.html"><img src="res/information.svg">Account Info.</a>
+                    <a href=""><img src="res/recent.svg">History</a>
                     <a href="" onclick="logOut()"><img src="res/logout.svg">Sign Out</a>
                 </div>
             </div>  
@@ -58,7 +58,7 @@
         <section id="topnav">
             <div class="container">
                 <div class="row justify-content-center topbar">
-                    <h2>Account information</h2>  
+                    <h2>Your Recent Orders</h2>  
                 </div>
                 <div class="row">
                     <div class="search">
@@ -68,49 +68,22 @@
                 </div>
             </div>
         </section>
+        
     <!--container-fluid ends-->    
     </div>
 
-    <!--Section 3 starts here-->
-    <section id="accinfo">
+    <!--section 3 starts from here-->
+    <section id="recents">
         <div class="container">
-            <div class="row justify-content-center">
-                <img src="res/accountPage.svg" class="img-fluid topmargin">
+            
+            <div id="main_div" class="row margin-adj justify-content-center">
+                <h4>No History Found!!!</h4>
             </div>
-            <form onsubmit="update(event)">
-                <div class="row justify-content-center">
-                  <div class="col-sm-6 col-10">
-                    <h6>User Name</h6>
-                    <input type="text" name="user_name" id="user_name" class="form-control mb-0" placeholder="User-name" value="">
-                  </div>
-                </div>
-                <!-- submit btn-->
-                <div class="row justify-content-center">
-                    <div class="col-sm-6 col-10">
-                        <div class="row justify-content-end">
-                            <button class="submit bg-transparent">Submit</button> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-sm-6 col-10">
-                        <h6>Mobile No.</h6>
-                        <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile no." value="" readonly="readonly">
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-sm-6 col-10">
-                        <h6>Email Id.</h6>
-                        <input type="email" name="email_id" id="email_id" class="form-control" placeholder="Email-Id" value="" readonly="readonly">
-                    </div>
-                </div>
-            </form>
-            <p id="x" hidden></p>
         </div>
     </section>
 
-     <!-- My script -->
-     <script>
+    <!-- My script -->
+    <script>
         function openNav() {
           document.getElementById("mySidenav").style.width = "220px";
           document.getElementById("main").style.marginLeft = "0px";
@@ -123,7 +96,8 @@
           document.getElementById("allbody-id").style.width = "0%";       
         }
     </script>
-    <script type="text/javascript" src="js/accountinfo.js"></script>
+    <script type="text/javascript" src="js/history.js"></script>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

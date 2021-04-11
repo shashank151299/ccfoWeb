@@ -18,6 +18,13 @@ var firebaseConfig = {
     if (user) {
       // User is signed in.
       //on load of home page if any task, do it here.
+      var url = document.location.href;
+      var params = url.split('?')[1].split('&');
+      var data = {}, tmp;
+      for (var i = 0, l = params.length; i < l; i++) {
+        tmp = params[i].split('=');
+        data[tmp[0]] = tmp[1];
+      } 
       //alert('welcome ' + user.uid)
 
       var db = firebase.database();
@@ -37,11 +44,12 @@ var firebaseConfig = {
             var name = childSnapshot.val().name;
             var price = childSnapshot.val().price;
             var productId = childSnapshot.key;
-            
-            db.ref('CanteenOwners/'+canteenId).on('value', function(snap){
-              var cantName = snap.val().canteenName;
-              genCard(productId,imageUrl,name,cantName,price,user.uid);
-            });
+            if (data.cantId == canteenId){
+              db.ref('CanteenOwners/'+canteenId).on('value', function(snap){
+                var cantName = snap.val().canteenName;
+                genCard(productId,imageUrl,name,cantName,price,user.uid);
+              });
+            }
           }
         )
       });
@@ -49,8 +57,8 @@ var firebaseConfig = {
         snapshot.forEach(  
           function(childSnapshot){
             var canteenId = childSnapshot.val().canteenId;
-            //var category = childSnapshot.val().category;
-            //var desc = childSnapshot.val().desc;
+            var category = childSnapshot.val().category;
+            var desc = childSnapshot.val().desc;
             var imageUrl = childSnapshot.val().imageUrl;
             var name = childSnapshot.val().name;
             var price = childSnapshot.val().price;
@@ -81,7 +89,7 @@ var firebaseConfig = {
   }
 
   //Card genration function.
-  function genCard(proid,imgUrl,proName,cantName,proPrice,userId){
+  function genCard(proId,imgUrl,proName,cantName,proPrice,userId){
     //proId is for genrating order accordinf to product
     var mainDiv = document.getElementById('main_div');
 
@@ -125,7 +133,7 @@ var firebaseConfig = {
 
     var repeatElement = document.createElement('button');
     repeatElement.innerHTML = "<img class=\"img-fluid img-cart\" src=\"res/repeat.svg\"> Add To Cart";
-    repeatElement.setAttribute('onclick',('fun("'+proid+'","'+userId+'")'));
+    repeatElement.setAttribute('onclick',('fun("'+proId+'","'+userId+'")'));
     
     mainDiv.appendChild(cardContainer);
     cardContainer.appendChild(cardElement);
@@ -136,7 +144,7 @@ var firebaseConfig = {
     priceElement.appendChild(priceVal);
     repeatContainer.appendChild(repeatElement);
   }
-  //this fun function is for adding items to cart.
+
   function fun(proId,uId){
     db = firebase.database();
     db.ref('Inventory/'+proId).on('value', function(snapshot){

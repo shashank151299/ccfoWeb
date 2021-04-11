@@ -245,3 +245,14 @@ close navbar function is called*/
   font-size: 1em;
   font-weight: bold;
 }
+#cart .submit {
+  margin: -7px 0px 0px 0px;
+  border: none;
+  background-color: #ffffff;
+  color: #008080;
+  font-size: 0.8em;
+  padding: 0px;
+}
+#cart textarea {
+  margin-bottom: 0px;
+}

@@ -157,12 +157,10 @@ close navbar function is called*/
 }
 /*Secton 3 code-----------------*/
 .topmargin {
-  margin: 120px 0px 10px 0px;
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 1px;
-  border-color: #707070;
-  box-shadow: 2px 2px 1px 0px #cacaca;
+  margin: 120px 0px 0px 0px;
+}
+#accinfo img {
+  width: 17vh;
 }
 form input {
   margin: 0px 0px 10px 0px;
@@ -174,7 +172,7 @@ form h6 {
   margin: 0px 0px 2px 0px;
 }
 .submit {
-  margin: 5px 15px 10px 0px;
+  margin: 0px 15px 10px 0px;
   border: none;
   background-color: #ffffff;
   color: #008080;

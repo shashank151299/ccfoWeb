@@ -262,6 +262,11 @@ body {
 }
 #canteen-opts p {
   margin: 5px 0px;
+  text-transform: capitalize;
+}
+#canteen-opts a {
+  text-decoration: none;
+  color: #000000;
 }
 /*all-body class css is used to help the page turn 
 black when navbar is open and turn normal when touched or 
@@ -275,4 +280,20 @@ close navbar function is called*/
 }
 .allbody img {
   height: max-content;
+}
+
+#recents button {
+  color: #008080;
+  font-size: 0.7em;
+  font-weight: bold;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+}
+#recents .price_text {
+  padding-left: 5px;
+  font-size: 0.8em;
+  margin: 0px;
 }

@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/recent.css">
+    <link rel="stylesheet" href="css/history.css">
     <title>Recent Ord.</title>
     <script src="/__/firebase/8.3.2/firebase-app.js"></script>
     <script src="/__/firebase/8.3.2/firebase-analytics.js"></script>
@@ -23,7 +23,7 @@
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="row justify-content-center">
-                    <img src="res/icons8-account-100.png">
+                    <img src="res/accountInfo.svg">
                 </div>
                 <div class="row justify-content-center">
                     <h5 id="uname">User Name</h5>
@@ -37,9 +37,10 @@
                 <div class="menu">
                     <a href="home.html"><img src="res/home.svg">Home</a>
                     <a href="carts.html"><img src="res/shopping_cart-white-18dp.svg">Cart</a>
+                    <a href=""><img src="res/cooking_3770370.svg">Live Orders</a>
                     <a href="inventory.html"><img src="res/menu.svg">Inventory</a>
                     <a href="accountinfo.html"><img src="res/information.svg">Account Info.</a>
-                    <a href="recentorders.html"><img src="res/recent.svg">Recent Order</a>
+                    <a href="history.html"><img src="res/recent.svg">History</a>
                     <a href="" onclick="logOut()"><img src="res/logout.svg">Sign Out</a>
                 </div>
             </div>  
@@ -57,7 +58,7 @@
         <section id="topnav">
             <div class="container">
                 <div class="row justify-content-center topbar">
-                    <h2>Your Recent Orders</h2>  
+                    <h2>Your Live Orders</h2>  
                 </div>
                 <div class="row">
                     <div class="search">
@@ -75,51 +76,8 @@
     <section id="recents">
         <div class="container">
             
-            <div class="row margin-adj">
-                <div class="col-md-6 col-12 justify-content-center pb-1">
-                    <div class="row recent-card">
-                        <div class="col-5 p-0 m-0">
-                            <img src="res/foodimg.jpg" alt="foodimg" class="food-img img-fluid">
-                            <h6 class="card-text-head">Cheese Sandwich</h6>
-                            <h6 class="card-text-sub">collagian canteen</h6>
-                            <p style="  padding-left: 5px; font-size: 0.8em; margin: 0px;">
-                                <strong>Price : </strong><light>60</light>Rs.
-                            </p>
-                        </div>
-                        <div class="col-7 content p-0 border-left">
-                            <p><strong>Quality : </strong><light>2</light></p>
-                            <p><strong>Total : </strong><light>120</light>Rs.</p>
-                            <p><strong>Description : </strong><light>Capsicum, Tomatoes, Onions, Olives, Corns.</light></p>
-                            <p><strong>Customization : </strong><light>Make it less spicy and Pure Jain.</light></p>
-                            <p style="margin-bottom: 25px;"><strong>Status : </strong><light>Served</light></p>
-                            <div class="col rep-ord d-flex align-items-end flex-column">
-                                <p><img src="res/repeat.svg"> Repeat Order</p>
-                            </div>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="col-md-6 col-12 justify-content-center pb-1">
-                    <div class="row recent-card">
-                        <div class="col-5 p-0 m-0">
-                            <img src="res/foodimg.jpg" alt="foodimg" class="food-img img-fluid">
-                            <h6 class="card-text-head">Cheese Sandwich</h6>
-                            <h6 class="card-text-sub">collagian canteen</h6>
-                            <p style="  padding-left: 5px; font-size: 0.8em; margin: 0px;">
-                                <strong>Price : </strong><light>60</light>Rs.
-                            </p>
-                        </div>
-                        <div class="col-7 content p-0 border-left">
-                            <p><strong>Quality : </strong><light>2</light></p>
-                            <p><strong>Total : </strong><light>120</light>Rs.</p>
-                            <p><strong>Description : </strong><light>Capsicum, Tomatoes, Onions, Olives, Corns.</light></p>
-                            <p><strong>Customization : </strong><light>Make it less spicy and Pure Jain.</light></p>
-                            <p style="margin-bottom: 25px;"><strong>Status : </strong><light>Served</light></p>
-                            <div class="col rep-ord d-flex align-items-end flex-column">
-                                <p><a><img src="res/repeat.svg"> Repeat Order</p>
-                            </div>
-                        </div>                        
-                    </div>
-                </div>
+            <div id="main_div" class="row margin-adj">
+                
             </div>
         </div>
     </section>
@@ -138,7 +96,7 @@
           document.getElementById("allbody-id").style.width = "0%";       
         }
     </script>
-    <script type="text/javascript" src="js/recentorders.js"></script>
+    <script type="text/javascript" src="js/liveorders.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -25,47 +25,31 @@ var firebaseConfig = {
         document.getElementById('uname').innerHTML = snapshot.val().username;
         document.getElementById('email').innerHTML = snapshot.val().email;
       });
-
-      //recent orders card generation
-      db.ref('History/').on('value', function(snapshot){
+      db.ref('LiveOrder/').on('value', function(snapshot){
+        document.getElementById('main_div').innerHTML = "";
         //console.log(snapshot.key)
         snapshot.forEach(
           function(snap){
-            document.getElementById('recent_div').innerHTML = "";
             //console.log(snap.key)
             snap.forEach(
               function(childSnapshot){
                 //console.log(childSnapshot.key)
                 if(childSnapshot.key == user.uid){
-                  recentOrdTitleCreate();
                   //console.log('inside')
-                  var arr = [];
-                  var i = 0;
                   childSnapshot.forEach(
-                    function(arrChild){
-                      if(i<2){
-                        arr.push(arrChild)
-                        console.log(arr);
-                        i++;
-                      }                  
-                    }
-                  )
-                  arr.reverse();
-                  arr.forEach(
                     function(childSnap){
                       //console.log("test"+ childSnap.key)
-                      var imgUrl = childSnap.val().imageUrl;
+                      var imgUrl = childSnap.val().imgUrl;
                       var title = childSnap.val().title;
                       var cantName = childSnap.val().canteenName;
                       var price = childSnap.val().price;
                       var quant = childSnap.val().quantity;
-                      var total = childSnap.val().subtotal;
+                      var total = childSnap.val().subTotal;
                       var desc = childSnap.val().description;
                       var cust = childSnap.val().customization;
                       var status = childSnap.val().status;
                       var proId = childSnap.val().productId;
-                      //console.log("test"+ imgUrl)
-                      liveCard(imgUrl,title,cantName,price,quant,total,desc,cust,status,proId,user.uid);
+                      liveCard(imgUrl,title,cantName,price,quant,total,desc,cust,status,proId,user.uid);                   
                     }
                   )
                 }
@@ -75,31 +59,13 @@ var firebaseConfig = {
         )
       });
 
-      //canteen List database handling.
-      db.ref('CanteenOwners/').on('value', function(snapshot){
-        //removing all the innerHTML before writing the new updated data in card.
-        document.getElementById('mainCant_div').innerHTML = "";
-        cantOptTitleCreate();
-        snapshot.forEach(
-          function(childSnapshot){
-            var canteenName = childSnapshot.val().canteenName;
-            var email = childSnapshot.val().email;
-            var mobileNo = childSnapshot.val().mobileNo;
-            var cantId = childSnapshot.key;
-            var imgUrl = (childSnapshot.val().imageUrl).toString();
-            //encoding cantid to url
-            var invUrl = link + '/cantInventory.html?cantId=' + encodeURIComponent(cantId);
-            genCantCard(invUrl,imgUrl,canteenName);
-          }
-        )
-      });
     } else {
       // User is not signed in.
       location.replace(link+"/login.html")
     }
   });
 
-  //Signout Function
+  //Signout Function below:
   function logOut() {
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
@@ -109,30 +75,9 @@ var firebaseConfig = {
       });
   }
 
-  //creating title for canteen options...
-  function cantOptTitleCreate(){
-    var mainDiv = document.getElementById('cantTitle');
-
-    var titleContainer = document.createElement('div');
-    titleContainer.className = "title";
-    titleContainer.innerHTML = "<h4>Canteen Opts.</h4><hr class=\"hr1\"><hr class=\"hr2\">"
-    
-    mainDiv.appendChild(titleContainer);
-  }
-
-  //creating title for recent orders...
-  function recentOrdTitleCreate(){
-    var mainDiv = document.getElementById('recentTitle');
-
-    var titleContainer = document.createElement('div');
-    titleContainer.className = "title";
-    titleContainer.innerHTML = "<h4>Recent Orders</h4><hr class=\"hr1\"><hr class=\"hr2\">"
-    
-    mainDiv.appendChild(titleContainer);
-  }
-  //function to create recent card
+  //function to create livecard.
   function liveCard(imgUrl,title,cantName,price,quant,total,desc,cust,status,proid,userId){
-    var mainDiv = document.getElementById('recent_div');
+    var mainDiv = document.getElementById('main_div');
 
     var cardContainer = document.createElement('div');
     cardContainer.classList.add('col-md-6','col-12','justify-content-center','pb-1');
@@ -241,70 +186,37 @@ var firebaseConfig = {
     custParaElement.append(custStrElement,custValue);
     statusParaElement.append(statusStrElement,statusValue);
     repeatDiv.appendChild(repeatParaElement);
-  }
+    }
 
-
-
-  //Canteens List Card genration function.
-  function genCantCard(invUrl,imgUrl,cantName){
-    var mainDiv = document.getElementById('mainCant_div');
-
-    var cardContainer = document.createElement('div');
-    cardContainer.classList.add('col-md-3','col-6');
-
-    var aElement = document.createElement('a');
-    aElement.href = invUrl.toString();
-
-    var cardElement = document.createElement('div');
-    cardElement.className = "cant-card";
-
-    var imgElement = document.createElement('img');
-    imgElement.classList.add('food-img','img-fluid');
-    imgElement.src = imgUrl.toString();
-
-    var hrElement = document.createElement('hr');
-
-    var pElement = document.createElement('p');
-
-    var strElement = document.createElement('strong');
-    strElement.innerHTML = cantName.toString();
-
-    mainDiv.appendChild(cardContainer);
-    cardContainer.appendChild(aElement);
-    aElement.appendChild(cardElement);
-    cardElement.append(imgElement,hrElement,pElement);
-    pElement.appendChild(strElement);
-  }
-
-  //this fun function is for adding items to cart.
-  function fun(proId,uId){
-    db = firebase.database();
-    db.ref('Inventory/'+proId).on('value', function(snapshot){
-      var canteenId = snapshot.val().canteenId;
-      var proDesc = snapshot.val().desc;
-      var proImageUrl = snapshot.val().imageUrl;
-      var proName = snapshot.val().name;
-      var proPrice = snapshot.val().price;
-      var quant = '1';
-      db.ref('CanteenOwners/'+canteenId).on('value', function(snap){
-        var cantName = snap.val().canteenName;
-        db.ref('UserData/'+uId).on('value',function(childSnap){
-          var uname = childSnap.val().username;
-          db.ref('TempOrder/'+canteenId+'/'+uId).push().set({
-            username: uname,
-            productId: proId,
-            title: proName,
-            canteenName: cantName,
-            price: proPrice,
-            quantity: quant,
-            subTotal: (proPrice*quant),
-            description: proDesc,
-            customization: "none",
-            status: "Not Accepted",
-            imgUrl: proImageUrl
+    //this fun function is for adding items to cart.
+    function fun(proId,uId){
+      db = firebase.database();
+      db.ref('Inventory/'+proId).on('value', function(snapshot){
+        var canteenId = snapshot.val().canteenId;
+        var proDesc = snapshot.val().desc;
+        var proImageUrl = snapshot.val().imageUrl;
+        var proName = snapshot.val().name;
+        var proPrice = snapshot.val().price;
+        var quant = '1';
+        db.ref('CanteenOwners/'+canteenId).on('value', function(snap){
+          var cantName = snap.val().canteenName;
+          db.ref('UserData/'+uId).on('value',function(childSnap){
+            var uname = childSnap.val().username;
+            db.ref('TempOrder/'+canteenId+'/'+uId).push().set({
+              username: uname,
+              productId: proId,
+              title: proName,
+              canteenName: cantName,
+              price: proPrice,
+              quantity: quant,
+              subTotal: (proPrice*quant),
+              description: proDesc,
+              customization: "none",
+              status: "Not Accepted",
+              imgUrl: proImageUrl
+            });
           });
         });
       });
-    });
-    alert("Item Added to Cart");
-  }
+      alert("Item Added to Cart");
+    }

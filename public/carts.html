@@ -23,7 +23,7 @@
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="row justify-content-center">
-                    <img src="res/icons8-account-100.png">
+                    <img src="res/accountInfo.svg">
                 </div>
                 <div class="row justify-content-center">
                     <h5 id="uname">User Name</h5>
@@ -36,10 +36,11 @@
                 
                 <div class="menu">
                     <a href="home.html"><img src="res/home.svg">Home</a>
-                    <a href="carts.html"><img src="res/shopping_cart-white-18dp.svg">Cart</a>
+                    <a href=""><img src="res/shopping_cart-white-18dp.svg">Cart</a>
+                    <a href="liveorders.html"><img src="res/cooking_3770370.svg">Live Orders</a>
                     <a href="inventory.html"><img src="res/menu.svg">Inventory</a>
                     <a href="accountinfo.html"><img src="res/information.svg">Account Info.</a>
-                    <a href="recentorders.html"><img src="res/recent.svg">Recent Order</a>
+                    <a href="history.html"><img src="res/recent.svg">History</a>
                     <a href="" onclick="logOut()"><img src="res/logout.svg">Sign Out</a>
                 </div>
             </div>  
@@ -73,115 +74,22 @@
     <!--Section 3 starts here-->
     <section id="cart">
         <div class="container">
-            <div class="row justify-content-center">
+            <div id="mainCard_div" class="row justify-content-center">
                 <!--Margin Adj top-->
                 <div class="col-12 margin-adj"></div>
-                <!--main cols now-->
-                <div class="col-sm-6 col-12">
-                    <div class="row cart-card">
-                        <h5>Cheese Sandwich</h5>
-                        <h6> College Canteen</h6>
-                        <div class="col-12">
-                            <p><strong>Price: </strong>₹ 60</p>
-                            <p><strong>Description: </strong>Capsicum, Tomatoes, Onions, Olives,Corns,...</p>
-                            <p><strong>Customization: </strong></p>
-                            <textarea id="customization-area"></textarea>
-                            <div class="row quantity-control-btn">
-                                <button class="left">-</button><p id="quantity">2</p><button class="right">+</button>
-                                <h6>Sub-Total: <strong>₹ 120</strong></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-12">
-                    <div class="row cart-card">
-                        <h5>Cheese Sandwich</h5>
-                        <h6> College Canteen</h6>
-                        <div class="col-12">
-                            <p><strong>Price: </strong>₹ 60</p>
-                            <p><strong>Description: </strong>Capsicum, Tomatoes, Onions, Olives,Corns,...</p>
-                            <p><strong>Customization: </strong></p>
-                            <textarea id="customization-area"></textarea>
-                            <div class="row quantity-control-btn">
-                                <button class="left">-</button><p id="quantity">2</p><button class="right">+</button>
-                                <h6>Sub-Total: <strong>₹ 120</strong></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-12">
-                    <div class="row cart-card">
-                        <h5>Cheese Sandwich</h5>
-                        <h6> College Canteen</h6>
-                        <div class="col-12">
-                            <p><strong>Price: </strong>₹ 60</p>
-                            <p><strong>Description: </strong>Capsicum, Tomatoes, Onions, Olives,Corns,...</p>
-                            <p><strong>Customization: </strong></p>
-                            <textarea id="customization-area"></textarea>
-                            <div class="row quantity-control-btn">
-                                <button class="left">-</button><p id="quantity">2</p><button class="right">+</button>
-                                <h6>Sub-Total: <strong>₹ 120</strong></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-12">
-                    <div class="row cart-card">
-                        <h5>Cheese Sandwich</h5>
-                        <h6> College Canteen</h6>
-                        <div class="col-12">
-                            <p><strong>Price: </strong>₹ 60</p>
-                            <p><strong>Description: </strong>Capsicum, Tomatoes, Onions, Olives,Corns,...</p>
-                            <p><strong>Customization: </strong></p>
-                            <textarea id="customization-area"></textarea>
-                            <div class="row quantity-control-btn">
-                                <button class="left">-</button><p id="quantity">2</p><button class="right">+</button>
-                                <h6>Sub-Total: <strong>₹ 120</strong></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-12">
-                    <div class="row cart-card">
-                        <h5>Cheese Sandwich</h5>
-                        <h6> College Canteen</h6>
-                        <div class="col-12">
-                            <p><strong>Price: </strong>₹ 60</p>
-                            <p><strong>Description: </strong>Capsicum, Tomatoes, Onions, Olives,Corns,...</p>
-                            <p><strong>Customization: </strong></p>
-                            <textarea id="customization-area"></textarea>
-                            <div class="row quantity-control-btn">
-                                <button class="left">-</button><p id="quantity">2</p><button class="right">+</button>
-                                <h6>Sub-Total: <strong>₹ 120</strong></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-12">
-                    <div class="row cart-card">
-                        <h5>Cheese Sandwich</h5>
-                        <h6> College Canteen</h6>
-                        <div class="col-12">
-                            <p><strong>Price: </strong>₹ 60</p>
-                            <p><strong>Description: </strong>Capsicum, Tomatoes, Onions, Olives,Corns,...</p>
-                            <p><strong>Customization: </strong></p>
-                            <textarea id="customization-area"></textarea>
-                            <div class="row quantity-control-btn">
-                                <button class="left">-</button><p id="quantity">2</p><button class="right">+</button>
-                                <h6>Sub-Total: <strong>₹ 120</strong></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
+            </div>
+            <div id="mainCard_div" class="row justify-content-center">
                 <div class="col-12">
                     <hr>
                 </div>
                 <div class="col-10 total-div">
-                    <h6>Total Amount To Be Paid: <strong>₹ 720</strong></h6>
+                    <h6>Total Amount To Be Paid: <strong>₹</strong><strong id="total">0</strong></h6>
                 </div>
                 <div class="col-11 total-div-btn">
-                    <button>Proceed to Order</button>
-                </div>      
+                    <button onclick="checkOut()">Proceed to Order</button>
+                </div>
             </div>
         </div>
 

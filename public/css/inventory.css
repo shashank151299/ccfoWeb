@@ -215,7 +215,7 @@ close navbar function is called*/
   height: 15px;
   width: 15px;
 }
-#inventory .inventory-card a {
+#inventory .inventory-card button {
   color: #008080;
   font-size: 0.7em;
   position: absolute;
@@ -223,4 +223,9 @@ close navbar function is called*/
   right: 5px;
   bottom: 3px;
   font-weight: bold;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
 }
