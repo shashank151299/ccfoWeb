@@ -10,8 +10,8 @@ var firebaseConfig = {
   };
 
   //var link = "https://shashank151299.github.io/ccfoWeb/public";
-  //var link = "https://pmms-ccfo.web.app/";
-  var link = "http://localhost:5000";
+  var link = "https://pmms-ccfo.web.app/";
+  //var link = "http://localhost:5000";
   var userdata;
 
   firebase.initializeApp(firebaseConfig);
