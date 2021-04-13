@@ -157,7 +157,7 @@ body {
 
 /*Margin adjustment*/
 .margin-adj {
-  margin-top: 110px;
+  margin-top: 105px;
 }
 
 .title h4 {
@@ -242,6 +242,9 @@ body {
   left: 50%;
   transform: translate(-50%, 65%);
 }
+#categories a {
+  color: #000000;
+}
 /*Section 5 css starts from here*/
 #canteen-opts .cant-card {
   margin: 20px 1px 0px 1px;
@@ -296,4 +299,65 @@ close navbar function is called*/
   padding-left: 5px;
   font-size: 0.8em;
   margin: 0px;
+}
+
+/*Search result css...............*/
+#searchOutput {
+  visibility: hidden;
+  position: absolute;
+}
+#searchOutput .closebtn {
+  color: #008080;
+  position: absolute;
+  top: -3px;
+  right: 10px;
+  font-size: 26px;
+  margin-left: 20px;
+  text-decoration: none;
+}
+#searchOutput .inventory-card {
+  margin: 15px 0px 7px 0px;
+  padding: 0px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: #707070;
+  box-shadow: 2px 2px 1px 0px #cacaca;
+  background-color: #fff;
+}
+#searchOutput .food-img {
+  height: auto;
+  width: 300px;
+  margin: 0px 0px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
+}
+#searchOutput h6 {
+  margin: 0px 0px 0px 2px;
+  color: #008080;
+  text-align: left;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+#searchOutput p {
+  margin: 0px 0px 0px 2px;
+  text-transform: capitalize;
+  font-size: 0.7em;
+}
+#searchOutput .img-cart {
+  height: 15px;
+  width: 15px;
+}
+#searchOutput .inventory-card button {
+  color: #008080;
+  font-size: 0.7em;
+  position: absolute;
+  margin-top: 10px;
+  right: 5px;
+  bottom: 3px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
 }

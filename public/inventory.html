@@ -63,20 +63,41 @@
                 </div>
                 <div class="row">
                     <div class="search">
-                        <input type="text" class="searchTerm" placeholder="Search">
-                        <button type="submit" class="searchButton"><img src="res/searchbtn.svg"></button>
+                        <input id="searchValue" type="text" class="searchTerm" placeholder="Search">
+                        <button onclick="search()" class="searchButton"><img src="res/searchbtn.svg"></button>
                     </div>
                 </div>
             </div>
         </section>
     <!--container-fluid ends-->    
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="margin-adj"></div>
+        </div>
+    </div>
+    <!--search section-->
+    <section id="searchOutput">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="title mt-1">
+                    <a href="javascript:void(0)" class="closebtn" onclick="removeSearchResult()">&times;</a>
+                    <h4>Search Results</h4>
+                    <hr class="hr1">
+                    <hr class="hr2">
+                </div>
+            </div>
+            <div id="searchResult" class="row justify-content-center">
+                <h5 class="mt-2">No result found!!!</h5>
+            </div>
+        </div>
+    </section>
 
     <!--Section 3 starts here-->
     <section id="inventory">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="title margin-adj">
+                <div class="title">
                     <h4>All Food Items</h4>
                     <hr class="hr1">
                     <hr class="hr2">
