@@ -400,3 +400,35 @@ var firebaseConfig = {
     priceElement.appendChild(priceVal);
     repeatContainer.appendChild(repeatElement);
   }
+  //add to cart function
+  function fun(proId,uId){
+    db = firebase.database();
+    db.ref('Inventory/'+proId).on('value', function(snapshot){
+      var canteenId = snapshot.val().canteenId;
+      var proDesc = snapshot.val().desc;
+      var proImageUrl = snapshot.val().imageUrl;
+      var proName = snapshot.val().name;
+      var proPrice = snapshot.val().price;
+      var quant = '1';
+      db.ref('CanteenOwners/'+canteenId).on('value', function(snap){
+        var cantName = snap.val().canteenName;
+        db.ref('UserData/'+uId).on('value',function(childSnap){
+          var uname = childSnap.val().username;
+          db.ref('TempOrder/'+canteenId+'/'+uId).push().set({
+            username: uname,
+            productId: proId,
+            title: proName,
+            canteenName: cantName,
+            price: proPrice,
+            quantity: quant,
+            subTotal: (proPrice*quant),
+            description: proDesc,
+            customization: "none",
+            status: "Not Accepted",
+            imgUrl: proImageUrl
+          });
+        });
+      });
+    });
+    alert("Item Added to Cart");
+  }

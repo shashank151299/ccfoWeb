@@ -163,6 +163,14 @@ var firebaseConfig = {
     var statusValue = document.createElement('light');
     statusValue.innerHTML = status.toString();
 
+    if(status.toString().toLowerCase() == "not accepted"){
+      //yellow
+      statusValue.style.color = "#FFD700";
+    }else if(status.toString().toLowerCase() == "accepted"){
+      //green
+      statusValue.style.color = "#228B22";
+    }
+
     var repeatDiv = document.createElement('div');
     repeatDiv.classList.add('col','rep-ord','d-flex','align-items-end','flex-column');
 

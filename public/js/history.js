@@ -172,6 +172,16 @@ var firebaseConfig = {
 
     var statusValue = document.createElement('light');
     statusValue.innerHTML = status.toString();
+    if(status.toString().toLowerCase() == "served"){
+      //green
+      statusValue.style.color = "#228B22";
+    }else if(status.toString().toLowerCase() == "discard"){
+      //orange
+      statusValue.style.color = "#FF4500";
+    }else if(status.toString().toLowerCase() == "declined"){
+      //red
+      statusValue.style.color = "#FF0000";
+    }
 
     var repeatDiv = document.createElement('div');
     repeatDiv.classList.add('col','rep-ord','d-flex','align-items-end','flex-column');
