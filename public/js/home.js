@@ -30,6 +30,8 @@ var firebaseConfig = {
 
       //recent orders card generation
       db.ref('History/').on('value', function(snapshot){
+        var oncePrintVariable = 0;
+        var arr = [];
         //console.log(snapshot.key)
         snapshot.forEach(
           function(snap){
@@ -39,9 +41,11 @@ var firebaseConfig = {
               function(childSnapshot){
                 //console.log(childSnapshot.key)
                 if(childSnapshot.key == user.uid){
-                  recentOrdTitleCreate();
+                  if(oncePrintVariable == 0){
+                    recentOrdTitleCreate();
+                    oncePrintVariable = 1;
+                  }
                   //console.log('inside')
-                  var arr = [];
                   var i = 0;
                   childSnapshot.forEach(
                     function(arrChild){
@@ -323,15 +327,15 @@ var firebaseConfig = {
 
   //Search function.......
   function search(){
-    var searchValue = document.getElementById('searchValue').value.toLowerCase();
+    var searchValue = document.getElementById('searchValue').value.toLowerCase().trim();
     //alert(searchValue)
     var arr =[];
     var db = firebase.database();
     db.ref('Inventory/').on('value', function(snapshot){
       snapshot.forEach(
         function(childSnapshot){
-          var catagory = childSnapshot.val().category.toString().toLowerCase();
-          var name = childSnapshot.val().name.toString().toLowerCase();
+          var catagory = childSnapshot.val().category.toString().toLowerCase().trim();
+          var name = childSnapshot.val().name.toString().toLowerCase().trim();
           if(catagory == searchValue || name == searchValue){
             arr.push(childSnapshot);
           }

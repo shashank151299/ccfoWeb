@@ -10,8 +10,8 @@ var firebaseConfig = {
   };
 
   //var link = "https://shashank151299.github.io/ccfoWeb/public";
-  var link = "https://pmms-ccfo.web.app/";
-  //var link = "http://localhost:5000";
+  //var link = "https://pmms-ccfo.web.app/";
+  var link = "http://localhost:5000";
   var userdata;
 
   firebase.initializeApp(firebaseConfig);
@@ -28,6 +28,7 @@ var firebaseConfig = {
         document.getElementById('email').innerHTML = snapshot.val().email;
       });
       db.ref('History/').on('value', function(snapshot){
+        var arr = [];
         //console.log(snapshot.key)
         snapshot.forEach(
           function(snap){
@@ -38,7 +39,6 @@ var firebaseConfig = {
                 //console.log(childSnapshot.key)
                 if(childSnapshot.key == user.uid){
                   //console.log('inside')
-                  var arr = [];
                   var i = 0;
                   childSnapshot.forEach(
                     function(arrChild){
@@ -247,15 +247,15 @@ var firebaseConfig = {
 
   //Search function.......
   function search(){
-    var searchValue = document.getElementById('searchValue').value.toLowerCase();
+    var searchValue = document.getElementById('searchValue').value.toLowerCase().trim();
     //alert(searchValue)
     var arr =[];
     var db = firebase.database();
     db.ref('Inventory/').on('value', function(snapshot){
       snapshot.forEach(
         function(childSnapshot){
-          var catagory = childSnapshot.val().category.toString().toLowerCase();
-          var name = childSnapshot.val().name.toString().toLowerCase();
+          var catagory = childSnapshot.val().category.toString().toLowerCase().trim();
+          var name = childSnapshot.val().name.toString().toLowerCase().trim();
           if(catagory == searchValue || name == searchValue){
             arr.push(childSnapshot);
           }
