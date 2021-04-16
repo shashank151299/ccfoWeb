@@ -10,8 +10,8 @@ var firebaseConfig = {
   };
 
   //var link = "https://shashank151299.github.io/ccfoWeb/public";
-  //var link = "https://pmms-ccfo.web.app/";
-  var link = "http://localhost:5000";
+  var link = "https://pmms-ccfo.web.app/";
+  //var link = "http://localhost:5000";
   var userdata;
 
   firebase.initializeApp(firebaseConfig);
@@ -30,12 +30,14 @@ var firebaseConfig = {
 
       //recent orders card generation
       db.ref('History/').on('value', function(snapshot){
+        //onceprintvariable is a flag.
         var oncePrintVariable = 0;
         var arr = [];
+        var i = 0;
+        document.getElementById('recent_div').innerHTML = "";
         //console.log(snapshot.key)
         snapshot.forEach(
           function(snap){
-            document.getElementById('recent_div').innerHTML = "";
             //console.log(snap.key)
             snap.forEach(
               function(childSnapshot){
@@ -46,37 +48,36 @@ var firebaseConfig = {
                     oncePrintVariable = 1;
                   }
                   //console.log('inside')
-                  var i = 0;
                   childSnapshot.forEach(
                     function(arrChild){
                         arr.push(arrChild);
                         //console.log(arr);
                     }
                   )
-                  arr.reverse();
-                  arr.forEach(
-                    function(childSnap){
-                      if(i < 2){
-                        //console.log("test"+ childSnap.key)
-                        var imgUrl = childSnap.val().imageUrl;
-                        var title = childSnap.val().title;
-                        var cantName = childSnap.val().canteenName;
-                        var price = childSnap.val().price;
-                        var quant = childSnap.val().quantity;
-                        var total = childSnap.val().subtotal;
-                        var desc = childSnap.val().description;
-                        var cust = childSnap.val().customization;
-                        var status = childSnap.val().status;
-                        var proId = childSnap.val().productId;
-                        //console.log("test"+ imgUrl)
-                        liveCard(imgUrl,title,cantName,price,quant,total,desc,cust,status,proId,user.uid);
-                        i++;
-                      }
-                    }
-                  )
                 }
               }
             )
+          }
+        )
+        arr.reverse();
+        arr.forEach(
+          function(childSnap){
+            if(i < 2){
+              //console.log("test"+ childSnap.key)
+              var imgUrl = childSnap.val().imageUrl;
+              var title = childSnap.val().title;
+              var cantName = childSnap.val().canteenName;
+              var price = childSnap.val().price;
+              var quant = childSnap.val().quantity;
+              var total = childSnap.val().subtotal;
+              var desc = childSnap.val().description;
+              var cust = childSnap.val().customization;
+              var status = childSnap.val().status;
+              var proId = childSnap.val().productId;
+              //console.log("test"+ imgUrl)
+              liveCard(imgUrl,title,cantName,price,quant,total,desc,cust,status,proId,user.uid);
+              i++;
+            }
           }
         )
       });

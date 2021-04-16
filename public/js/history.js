@@ -29,10 +29,10 @@ var firebaseConfig = {
       });
       db.ref('History/').on('value', function(snapshot){
         var arr = [];
+        document.getElementById('main_div').innerHTML = "";
         //console.log(snapshot.key)
         snapshot.forEach(
           function(snap){
-            document.getElementById('main_div').innerHTML = "";
             //console.log(snap.key)
             snap.forEach(
               function(childSnapshot){
@@ -43,7 +43,7 @@ var firebaseConfig = {
                   childSnapshot.forEach(
                     function(arrChild){
                       arr.push(arrChild)
-                      //console.log(arr);
+                      console.log(arr);
                       i++;                  
                     }
                   )
@@ -90,6 +90,7 @@ var firebaseConfig = {
 
   //function to create livecard.
   function liveCard(imgUrl,title,cantName,price,quant,total,desc,cust,status,proid,userId){
+    //console.log(imgUrl,title,cantName,price,quant,total,desc,cust,status,proid,userId)
     var mainDiv = document.getElementById('main_div');
 
     var cardContainer = document.createElement('div');
